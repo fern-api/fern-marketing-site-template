@@ -15,17 +15,24 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-(--grid-max-w) px-6 py-24">
-      <p className="text-p-x-small text-muted-foreground font-medium uppercase tracking-wide">
-        Example seed
-      </p>
-      <h1 className="text-display mt-4 max-w-3xl">
-        A marketing site agents can operate.
+      <h1 className="text-display max-w-3xl">
+        A template marketing site for agents
       </h1>
       <p className="text-p text-muted-foreground mt-6 max-w-2xl">
-        Content lives in the repo as MDX, validated at build time. A new page
-        or post is a pull request, reviewed and preview-deployed like any code
-        change. The skills in .claude/skills do the repeatable work.
+        Content lives in the repo as MDX, validated at build time. Every new
+        page or post ships as a pull request — reviewed and preview-deployed
+        like any code change — and the skills in .claude/skills handle the
+        repeatable work.
       </p>
+      <a
+        href="https://buildwithfern.com/post/building-fern-site"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-p-small text-brand mt-8 inline-flex items-center gap-2 font-medium hover:underline"
+      >
+        How 2 designers built the Fern site with Claude Code
+        <ArrowRight className="size-4" />
+      </a>
 
       <h2 className="text-h2 mt-24">From the blog</h2>
       <ul className="divide-border mt-8 divide-y border-y">

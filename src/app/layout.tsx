@@ -27,9 +27,14 @@ export default function RootLayout({
                 example
               </Link>
               <nav className="text-p-small text-muted-foreground">
-                <Link href="/" className="hover:text-foreground">
-                  Blog
-                </Link>
+                <a
+                  href="https://buildwithfern.com/post/building-fern-site"
+                  className="hover:text-foreground"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  How we built it
+                </a>
               </nav>
             </div>
           </header>

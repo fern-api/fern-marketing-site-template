@@ -1,6 +1,6 @@
 # Fern marketing site: the structure we give away
 
-This is the repo structure behind [buildwithfern.com](https://buildwithfern.com), extracted from the real site. Two product designers built and run the site with Claude Code, and this is the scaffolding that makes that work: the skills, the voice file, the campaign system, the content format, and a runnable seed of the site itself. The full story is in [How 2 designers built the Fern site with Claude Code](https://buildwithfern.com/post/building-fern-site).
+This is the repo structure behind [buildwithfern.com](https://buildwithfern.com), extracted from the real site: the skills, the voice file, the campaign system, the content format, and a runnable seed of the site itself. The full story is in [How 2 designers built the Fern site with Claude Code](https://buildwithfern.com/post/building-fern-site).
 
 ## What's inside
 

@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design tokens. Every color, radius, and type size on the site resolves to a
+ * token defined here (AGENTS.md rule 1: design tokens, not raw values). The
+ * real site's globals.css is ~1,400 lines of the same idea: semantic colors,
+ * a typographic scale, gutter patterns, and animation tokens. The values
+ * below are the real ones, trimmed to the essentials.
+ */
+
+:root {
+  --background: oklch(0.977 0 0);
+  --foreground: #202020;
+  --muted: #f9f9f9;
+  --muted-foreground: oklch(0.556 0 0);
+  --border: oklch(0.92 0 0);
+  --brand: #218358;
+  --radius: 0.625rem;
+  --grid-max-w: 86rem;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: #eeeeee;
+  --muted: #191919;
+  --muted-foreground: oklch(0.708 0 0);
+  --border: oklch(0.265 0 0);
+  --brand: #3dd68c;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-brand: var(--brand);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+
+  /* The real site loads GT Planar here. */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Typography — desktop scale. h3 24 → h2 36 → h1 54 (×1.5 each step).
+     Display sits above the heading scale for hero use. */
+  --text-display: 4rem; /* 64px */
+  --text-display--line-height: 1.15;
+  --text-display--letter-spacing: -0.04em;
+  --text-display--font-weight: 400;
+
+  --text-h1: 3.375rem; /* 54px */
+  --text-h1--line-height: 1.15;
+  --text-h1--letter-spacing: -0.04em;
+  --text-h1--font-weight: 400;
+
+  --text-h2: 2.25rem; /* 36px */
+  --text-h2--line-height: normal;
+  --text-h2--letter-spacing: -0.04em;
+  --text-h2--font-weight: 400;
+
+  --text-h3: 1.5rem; /* 24px */
+  --text-h3--line-height: normal;
+  --text-h3--letter-spacing: -0.02em;
+  --text-h3--font-weight: 400;
+
+  --text-p-large: 1.5rem; /* 24px */
+  --text-p-large--line-height: 1.3;
+  --text-p-large--letter-spacing: -0.01em;
+  --text-p-large--font-weight: 300;
+
+  --text-p: 1.25rem; /* 20px */
+  --text-p--line-height: 1.5;
+  --text-p--letter-spacing: -0.01em;
+  --text-p--font-weight: 300;
+
+  --text-p-small: 1rem; /* 16px */
+  --text-p-small--line-height: 1.6;
+  --text-p-small--font-weight: 300;
+
+  --text-p-x-small: 0.875rem; /* 14px */
+  --text-p-x-small--line-height: 1.4;
+  --text-p-x-small--font-weight: 300;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/*
+ * Minimal prose styles for MDX articles. The real site's prose-article.css
+ * covers far more (figures, callouts, dual-theme Shiki code, zoomable
+ * images); this is just enough to read a post comfortably.
+ */
+.article-prose > * + * {
+  margin-top: 1.25em;
+}
+
+.article-prose h2 {
+  font-size: var(--text-h2);
+  letter-spacing: -0.04em;
+  margin-top: 2em;
+}
+
+.article-prose h3 {
+  font-size: var(--text-h3);
+  letter-spacing: -0.02em;
+  margin-top: 1.6em;
+}
+
+.article-prose p,
+.article-prose li {
+  font-size: var(--text-p);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.article-prose ul {
+  list-style: disc;
+  padding-left: 1.5em;
+}
+
+.article-prose ul li + li {
+  margin-top: 0.5em;
+}
+
+.article-prose a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.article-prose strong {
+  font-weight: 500;
+}
+
+.article-prose code {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 0.6);
+  font-size: 0.85em;
+  padding: 0.1em 0.35em;
+}
+
+.article-prose pre {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  padding: 1rem 1.25rem;
+}
+
+.article-prose pre code {
+  background: none;
+  border: none;
+  font-size: var(--text-p-small);
+  padding: 0;
+}
+
+.article-prose table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.article-prose th,
+.article-prose td {
+  border: 1px solid var(--border);
+  font-size: var(--text-p-small);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.article-prose th {
+  background: var(--muted);
+  font-weight: 500;
+}

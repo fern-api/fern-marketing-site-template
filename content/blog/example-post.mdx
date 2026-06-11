@@ -1,0 +1,70 @@
+---
+# Required fields. The full schema lives in src/lib/posts.ts in the site repo,
+# validated with Zod at build time so a bad frontmatter fails the build.
+title: An example post showing the frontmatter and MDX setup
+date: "2026-06-10"
+description: A reference post demonstrating the frontmatter schema and the MDX components available in Fern blog posts.
+
+# Lowercase strings. Reuse existing tags (strategy, company, product, sdks, engineering).
+tags:
+  - engineering
+  - company
+
+# Author slugs resolve against src/lib/authors.ts. Use `author` for a single
+# byline or `authors` (ordered, primary first) for co-authored posts.
+authors:
+  - kapil-gowru
+
+# Set true to keep the file in the repo but strip it from production builds.
+draft: false
+
+# Optional fields, shown here with their defaults or omitted entirely:
+# image: "/post/example-post/hero.avif"   # social card + hero; default OG image renders without it
+# audio: true                             # ElevenLabs "listen to this article" widget; set false for code-heavy posts
+# hidden: false                           # reachable by URL but excluded from /blog, tags, and RSS
+# secondary: false                        # renders in the compact long-tail list on /blog
+---
+
+Open with the news, not the setup. The first paragraph states what is happening; the second states why this post exists. No throat-clearing.
+
+This post exists as a reference: it shows every frontmatter field and MDX component a Fern blog post can use, in context.
+
+## H2s do work
+
+Each heading is a stake in the ground, not a generic label. "Background" and "Introduction" are weak; "The story changed" is strong.
+
+Paragraphs stay short, one to three sentences. When reasons or pillars stack, lead each with a bold one-liner:
+
+- **Concrete beats abstract.** Real numbers, real customers, real tool names.
+- **Outcomes, not architecture.** Describe what the reader gets, not how the system works.
+- **Close with an action.** A link to try, a DM invitation, a hiring nudge. Never a recap.
+
+## The components
+
+<Eyebrow>Eyebrow</Eyebrow>
+
+The `<Eyebrow>` tag renders a small uppercase label above a heading, like the one above this paragraph.
+
+<Quote author="Jane Developer" role="Staff Engineer at Example Co">
+  The Quote component renders a pull-quote with a green left rule and attribution. Use it for customer quotes in case studies and posts.
+</Quote>
+
+Markdown tables are auto-styled:
+
+| Field | Required | Purpose |
+|---|---|---|
+| `title` | Yes | The headline |
+| `date` | Yes | ISO format, quoted |
+| `description` | Yes | The TL;DR for search and social cards |
+
+Fenced code blocks with a `title` render a filename bar:
+
+```ts title="src/lib/example.ts"
+export function example(): string {
+  return "Code blocks highlight with Shiki via rehype-pretty-code.";
+}
+```
+
+## Close with an action
+
+Fork this structure for your own posts. Drop the file in `content/blog/<slug>.mdx`, set `draft: false` when it is ready for review, and the post ships like any other pull request.
